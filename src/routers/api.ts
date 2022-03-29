@@ -57,7 +57,7 @@ router.post('/create', (req, res) => {
 
     // create a new poll
     const newPoll = new Poll({
-        id: randomString(25),
+        id: randomString(6),
         name,
         options: optionsList,
         createDate: new Date()
