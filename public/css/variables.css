@@ -1,0 +1,11 @@
+:root {
+  --white: #fff;
+  --black: #000;
+  --purple: #B803FF;
+  --box: linear-gradient(
+          to left,
+          transparent 0%,
+          #fff 25%,
+          transparent 100%
+  );
+}
