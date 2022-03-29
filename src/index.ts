@@ -15,13 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// connect to mongoose d
+// connect to mongoose 
 mongoose.connect('mongodb://localhost:27017/polls');
 
 // get port from dotenv
 const port = process.env.PORT || 3000;
 
-// register mongooose models
+// register mongoose models
 mongoose.model('Poll', pollScheme);
 
 // set ejs as view engine
@@ -36,6 +36,4 @@ app.use('/api', api);
 app.use('/polls', poll);
 
 // start the express server
-app.listen(port, () => {
-    console.log(`server started at http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`server started at http://localhost:${port}`));

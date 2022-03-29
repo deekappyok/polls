@@ -16,6 +16,8 @@
 
     <button id="vote-btn" onclick="submit()">Vote</button>
 
+    <a href="/polls/<%= poll.id %>/results">Results</a>
+
     <script>
         const submit = async () => {
             const vote = document.getElementById('vote').value;
