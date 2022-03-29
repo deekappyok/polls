@@ -4,7 +4,7 @@ import {randomString} from '../utils/idUtil';
 import mongoose from 'mongoose';
 
 // import pollScheme
-import {pollScheme} from '../scheme/pollScheme';
+import {pollScheme} from '../models/pollModel';
 
 const router = express.Router();
 

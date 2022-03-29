@@ -6,7 +6,7 @@ import api from './routers/api';
 import poll from './routers/poll';
 
 // models 
-import {pollScheme} from './scheme/pollScheme';
+import {pollScheme} from './models/pollModel';
 
 const app = express();
 
