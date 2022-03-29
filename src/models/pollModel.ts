@@ -1,7 +1,6 @@
-// create a mongoose poll scheme with id, options, votes and createDate
 import mongoose from 'mongoose';
 
-export const pollScheme = new mongoose.Schema({
+export const pollModel = new mongoose.Schema({
     id: {
         type: String,
         required: true,

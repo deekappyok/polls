@@ -3,14 +3,14 @@ import mongoose from 'mongoose';
 
 // routes
 import api from './routers/api';
-import poll from './routers/poll';
+import poll from './routers/polls';
 
 // models 
-import {pollScheme} from './models/pollModel';
+import {pollModel} from './models/pollModel';
 
 const app = express();
 
-// add cors and body parser
+// add  body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -22,7 +22,7 @@ mongoose.connect('mongodb://localhost:27017/polls');
 const port = process.env.PORT || 3000;
 
 // register mongoose models
-mongoose.model('Poll', pollScheme);
+mongoose.model('Poll', pollModel);
 
 // set ejs as view engine
 app.set('view engine', 'ejs');

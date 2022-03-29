@@ -3,8 +3,8 @@ import {randomString} from '../utils/idUtil';
 
 import mongoose from 'mongoose';
 
-// import pollScheme
-import {pollScheme} from '../models/pollModel';
+// import pollModel
+import {pollModel} from '../models/pollModel';
 
 const router = express.Router();
 
@@ -42,8 +42,8 @@ router.post('/vote', (req, res) => {
 router.post('/create', (req, res) => {
     const { name, options } = req.body;
 
-    // create a new poll with scheme
-    const Poll = mongoose.model('Poll', pollScheme);
+    // create a new poll with Model
+    const Poll = mongoose.model('Poll', pollModel);
 
 
     const optionsList: any = [];
