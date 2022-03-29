@@ -1,0 +1,23 @@
+{
+  "name": "polls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DeeKaPPy/polls",
+  "author": "DeeKaPPy <deekappy@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.23",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.8",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}

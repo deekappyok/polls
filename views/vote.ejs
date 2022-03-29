@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vote - <%= poll.name %></h1>
+    <select name="vote" id="vote">
+        <% for(let i=0; i<poll.options.length; i++) { %>
+            <option value="<%= poll.options[i].name %>"><%= poll.options[i].name %></option>
+        <% } %>
+    </select>
+
+    <button id="vote-btn" onclick="submit()">Vote</button>
+
+    <script>
+        const submit = async () => {
+            const vote = document.getElementById('vote').value;
+            const response = await fetch('/api/vote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: '<%= poll.id %>',
+                    vote: vote
+                })
+            });
+            
+            // redirect to results
+            if(response.status === 200) {
+                window.location.href = '/polls/<%= poll.id %>/results';
+            }
+        };
+    </script>
+</body>
+</html>

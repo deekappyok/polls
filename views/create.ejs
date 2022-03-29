@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <label for="name">Poll Name</label>
+        <input type="text" name="name" id="name">
+
+        <div class="options">
+            <input type="text" id="option">
+
+            
+        </div>
+        <button onclick="addOption()">Add Option</button>
+        
+        <button onclick="send()">Send</button>
+    </div>
+
+</body>
+
+<script>
+
+    const addOption = () => {
+        const options = document.querySelector('.options');
+        const newOption = document.createElement('input');
+        newOption.type = 'text';
+        newOption.id = 'option';
+        options.appendChild(newOption);
+    };
+
+    const send = async () => {
+        const optionsList = [];
+        const name = document.querySelector('#name').value;
+        const options = document.querySelectorAll('.options input');
+  
+        options.forEach(option => optionsList.push(option.value));
+
+        // send body as body to /api/create
+        const response = await fetch('/api/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                options: optionsList
+            })
+        });
+        const data = await response.json();
+        document.location.href = `/polls/${data.id}`;
+    };
+    
+</script>
+</html>
