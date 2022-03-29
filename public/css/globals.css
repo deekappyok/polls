@@ -23,10 +23,16 @@ a {
 }
 
 .btn {
-  background-color: var(--purple);
-  box-shadow: rgb(68 96 240 / 35%) 0px 15px 60px 0px;
-  color: var(--white);
+  background-color: transparent;
+  box-shadow: transparent 0px 15px 60px 0px;
+  color: transparent;
   border-radius: 7px;
   font-size: 14px;
   padding: 20px 40px;
+}
+
+.btn-primary {
+  background-color: var(--purple);
+  box-shadow: rgb(68 96 240 / 35%) 0px 15px 60px 0px;
+  color: var(--white);
 }
