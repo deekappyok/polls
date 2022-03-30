@@ -9,7 +9,7 @@ router.get('/:id', (req, res) => {
 
     Poll.find({id: id}, (err, polls) => {
         if (err) {
-            res.status(500).send('something went wrong');
+            res.status(500).send({error: 'something went wrong'});
         } else {
             res.render('vote', {
                 poll: polls[0]
@@ -24,7 +24,7 @@ router.get('/:id/results', (req, res) => {
    
     Poll.find({id: id}, (err, polls) => {
         if (err) {
-            res.status(500).send('something went wrong');
+            res.status(500).send({error: 'something went wrong'});
         } else {
             res.render('results', {
                 poll: polls[0]

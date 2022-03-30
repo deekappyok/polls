@@ -14,6 +14,10 @@ export const pollModel = new mongoose.Schema({
         type: Array,
         required: true
     },
+    voted: {
+        type: Array,
+        required: true
+    },
     createDate: {
         type: Date,
         required: true

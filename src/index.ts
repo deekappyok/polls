@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+// set trust proxy
+app.set('trust proxy', true);
+
 // connect to mongoose 
 mongoose.connect('mongodb://localhost:27017/polls');
 
