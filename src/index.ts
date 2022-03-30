@@ -35,6 +35,7 @@ app.get('/', (req, res) => res.render('index'));
 
 app.get('/create', (req, res) => res.render('create'));
 
+// todo: change /api to /api/v1 
 app.use('/api', api);
 app.use('/polls', poll);
 

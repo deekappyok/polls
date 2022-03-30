@@ -8,7 +8,39 @@ import {pollModel} from '../models/pollModel';
 
 const router = express.Router();
 
-
+/**
+ * @api {post} /vote Vote for a poll
+ * @apiName Vote
+ * @apiGroup Polls
+ * @apiParam {String} id Poll id
+ * @apiParam {String} option Poll option
+ * @apiSuccess {String} id Poll id
+ * @apiSuccess {String} name Poll name
+ * @apiSuccess {Array} options Poll options
+ * @apiSuccess {Array} voted Poll voted
+ * @apiSuccess {Date} createDate Poll create date
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ * {
+ * "id": "5b9d8f9f8f9f9f9f9f9f9f9",
+ * "name": "What is your favorite color?",
+ * "options": [
+ * {name: "Red", votes: 0},
+ * ],
+ * "voted": [],
+ * "createDate": "2018-01-01T00:00:00.000Z"
+ * }
+ * @apiErrorExample {json} Error-Response:
+ * HTTP/1.1 404 Not Found
+ * {
+ * "error": "Poll not found"
+ * }
+ * @apiErrorExample {json} Error-Response:
+ * HTTP/1.1 500 Internal Server Error
+ * {
+ * "error": "Something went wrong"
+ * }
+ */
 router.post('/vote', (req, res) => {
     const { id, vote } = req.body;
     const ip: String = req.ip;
@@ -51,6 +83,40 @@ router.post('/vote', (req, res) => {
 
 });
 
+/**
+ * @api {post} /create Create a new poll
+ * @apiName CreatePoll
+ * @apiGroup Polls
+ * @apiParam {String} name Poll name
+ * @apiParam {Array} options Poll options
+ * @apiSuccess {String} id Poll id
+ * @apiSuccess {String} name Poll name
+ * @apiSuccess {Array} options Poll options
+ * @apiSuccess {Array} voted Poll voted
+ * @apiSuccess {Date} createDate Poll create date
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+ * {
+ * 
+ * "id": "5b9d8f9f8f9f9f9f9f9f9f9",
+ * "name": "What is your favorite color?",
+ * "options": [
+ * {name: "Red", votes: 0},
+ * ],
+ * "voted": [],
+ * "createDate": "2018-01-01T00:00:00.000Z"
+ * }
+ * @apiErrorExample {json} Error-Response:
+ * HTTP/1.1 500 Internal Server Error
+ * {
+ * "error": "Something went wrong"
+ * }
+ * @apiErrorExample {json} Error-Response:
+ * HTTP/1.1 400 Bad Request
+ * {
+ * "error": "Invalid options"
+ * }
+ */
 router.post('/create', (req, res) => {
     const { name, options } = req.body;
 
