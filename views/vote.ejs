@@ -31,11 +31,19 @@
                     vote: vote
                 })
             });
-            
-            // redirect to results
-            if(response.status === 200) {
-                window.location.href = '/polls/<%= poll.id %>/results';
+
+            switch(response.status){
+                case 200:
+                    window.location.href = '/polls/<%= poll.id %>/results';
+                    break;
+                case 400:
+                    alert('Invalid vote!');
+                    break;
+                case 421:
+                    alert('You have already voted');
+                    break;
             }
+            
         };
     </script>
 </body>
