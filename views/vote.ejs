@@ -30,7 +30,7 @@
     <script>
         const submit = async () => {
             const vote = document.getElementById('vote').value;
-            const response = await fetch('/api/vote', {
+            const response = await fetch('/api/v1/vote', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
