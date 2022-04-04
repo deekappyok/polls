@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import "./variables.css";
+
+body {
+  background-image: url("../img/bg.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: repeat;
+  font-family: 'Poppins', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.btn {
+  border: none;
+  margin: 0 5px;
+  background-color: transparent;
+  box-shadow: transparent 0px 15px 60px 0px;
+  color: transparent;
+  border-radius: 7px;
+  font-size: 14px;
+  padding: 20px 40px;
+}
+
+.btn-primary {
+  background-color: var(--purple);
+  box-shadow: rgb(68 96 240 / 35%) 0px 15px 60px 0px;
+  color: var(--white);
+}
+
+.btn-color-g {
+  background-color: transparent;
+  font-weight: 500;
+  color: var(--black);
+}
+
+input, select {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  background-color: rgb(157, 160, 183, 0.4);
+  padding: 10px;
+  font-size: 15px;
+  width: 400px;
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: background-color .2s ease-in-out;
+}
+
+input:focus, select:focus {
+  outline: none;
+  background-color: rgb(157, 160, 183, 0.6);
+}
+
+table {
+  background-color: rgb(157, 160, 183, 0.4);
+  border-radius: 5px;
+  padding: 10px 0;
+  width: 375px;
+  margin: -25px 0;
+}
+
+@media screen and (max-width: 432px) {
+  input, select {
+    width: 100%;
+  }
+
+  .index-options {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+}
