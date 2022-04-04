@@ -48,9 +48,13 @@
         const name = document.querySelector('#name').value;
         const options = document.querySelectorAll('.index-options input');
   
-        options.forEach(option => optionsList.push(option.value));
+        options.forEach(option => {
+            if(option.value != ""){
+                optionsList.push(option.value)
+            }
+        });
 
-        if(name == null || options == null || options.length() < 2){
+        if(name == null || options == null || optionsList.length() < 2){
             alert('Nie podałeś wszystkich argumentów!');
             return;
         }
