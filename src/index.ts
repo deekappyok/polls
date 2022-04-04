@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+// set trust proxy
+app.set('trust proxy', true);
+
 // connect to mongoose 
 mongoose.connect('mongodb://localhost:27017/polls');
 
@@ -32,6 +35,7 @@ app.get('/', (req, res) => res.render('index'));
 
 app.get('/create', (req, res) => res.render('create'));
 
+// todo: change /api to /api/v1 
 app.use('/api', api);
 app.use('/polls', poll);
 
