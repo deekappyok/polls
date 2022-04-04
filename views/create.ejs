@@ -17,7 +17,9 @@
             <label for="name">Poll Name</label>
             <p>A simple poll system made with typescript! 🍔</p>
             <input type="text" placeholder="Name" name="name" id="name">
+            <br>
             <div class="index-options">
+                <input type="text" placeholder="Option" id="option">
                 <input type="text" placeholder="Option" id="option">
             </div>
             <div class="index-box-btn">
@@ -47,6 +49,11 @@
         const options = document.querySelectorAll('.index-options input');
   
         options.forEach(option => optionsList.push(option.value));
+
+        if(name == null || options == null || options.length() < 2){
+            alert('Nie podałeś wszystkich argumentów!');
+            return;
+        }
 
         // send body as body to /api/create
         const response = await fetch('/api/create', {
