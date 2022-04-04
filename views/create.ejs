@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Simple Polls 💜 Create a poll!</title>
 
     <link rel="stylesheet" href="/css/globals.css">
     <link rel="stylesheet" href="/css/index-style.css">
@@ -14,13 +14,13 @@
 
     <section class="index">
         <div class="index-box">
-            <label for="name">Poll Name</label>
+            <label for="name">Create a new Poll</label>
             <p>A simple poll system made with typescript! 🍔</p>
-            <input type="text" placeholder="Name" name="name" id="name">
+            <input type="text" placeholder="Question.." name="name" id="name">
             <br>
             <div class="index-options">
-                <input type="text" placeholder="Option" id="option">
-                <input type="text" placeholder="Option" id="option">
+                <input type="text" placeholder="Option.." id="option">
+                <input type="text" placeholder="Option.." id="option">
             </div>
             <div class="index-box-btn">
                 <button class="btn btn-primary" onclick="addOption()">Add Option</button>
@@ -54,7 +54,7 @@
             }
         });
 
-        if(name == null || options == null || optionsList.length() < 2){
+        if(name == null || options == null || optionsList.length < 2){
             alert('Nie podałeś wszystkich argumentów!');
             return;
         }

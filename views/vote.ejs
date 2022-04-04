@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Polls 💜 Vote - <%= poll.name %></title>
 
     <link rel="stylesheet" href="/css/globals.css">
     <link rel="stylesheet" href="/css/index-style.css">
@@ -13,8 +13,8 @@
 
     <section class="index">
         <div class="index-box">
-            <h1>Vote - <%= poll.name %></h1>
-            <p>A simple poll system made with typescript! 🍔</p>
+            <h1>Vote</h1>
+            <p><%= poll.name %></p>
             <select name="vote" id="vote">
                 <% for(let i=0; i<poll.options.length; i++) { %>
                     <option value="<%= poll.options[i].name %>"><%= poll.options[i].name %></option>

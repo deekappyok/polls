@@ -43,6 +43,11 @@ const router = express.Router();
  */
 router.post('/vote', (req, res) => {
     const { id, vote } = req.body;
+
+    if (!id || !vote) {
+        return res.status(400).json({ error: 'Missing id or vote' });
+    }
+
     const ip: String = req.ip;
 
     const Poll = mongoose.model('Poll');
@@ -119,6 +124,14 @@ router.post('/vote', (req, res) => {
  */
 router.post('/create', (req, res) => {
     const { name, options } = req.body;
+
+    if (!name || !options) {
+        return res.status(400).json({ error: 'Missing name or options' });
+    }
+
+    if (options.length < 2) {
+        return res.status(400).json({ error: 'Invalid options' });
+    }
 
     // create a new poll with Model
     const Poll = mongoose.model('Poll', pollModel);
