@@ -7,23 +7,30 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="scss/globals.scss">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/index-style.css">
 </head>
 <body>
-    <h1><%= poll.name %></h1>
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>Votes</td>
-        </tr>
-        <% for(let i=0; i<poll.options.length; i++) { %>
-            <tr>
-                <td><%= poll.options[i].name %></td>
-                <td><%= poll.options[i].votes %></td>
-            </tr>
-        <% } %>
 
-        <a href="/polls/<%= poll.id %>">Vote</a>
-    </table>
+    <section class="index">
+        <div class="index-box">
+            <h1>Results - <%= poll.name %></h1>
+            <p>A simple poll system made with typescript! 🍔</p>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>Votes</td>
+                </tr>
+                <% for(let i=0; i<poll.options.length; i++) { %>
+                    <tr>
+                        <td class="index-table-title"><%= poll.options[i].name %></td>
+                        <td class="index-table-title"><%= poll.options[i].votes %></td>
+                    </tr>
+                <% } %>
+
+                <a href="/polls/<%= poll.id %>">Vote</a>
+            </table>
+        </div>
+    </section>
 </body>
 </html>

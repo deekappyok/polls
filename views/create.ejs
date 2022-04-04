@@ -7,30 +7,33 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="scss/globals.scss">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/index-style.css">
 </head>
 <body>
-    
-    <div>
-        <label for="name">Poll Name</label>
-        <input type="text" name="name" id="name">
 
-        <div class="options">
-            <input type="text" id="option">
-
-            
+    <section class="index">
+        <div class="index-box">
+            <label for="name">Poll Name</label>
+            <p>A simple poll system made with typescript! 🍔</p>
+            <input type="text" placeholder="Name" name="name" id="name">
+            <div class="index-options">
+                <input type="text" placeholder="Title" id="option">
+            </div>
+            <div class="index-box-btn">
+                <button class="btn btn-primary" onclick="addOption()">Add Option</button>
+                <button class="btn btn-primary" onclick="send()">Send</button>
+            </div>
         </div>
-        <button onclick="addOption()">Add Option</button>
-        
-        <button onclick="send()">Send</button>
-    </div>
+    </section>
+
 
 </body>
 
 <script>
 
     const addOption = () => {
-        const options = document.querySelector('.options');
+        const options = document.querySelector('.index-options');
         const newOption = document.createElement('input');
         newOption.type = 'text';
         newOption.id = 'option';
@@ -40,7 +43,7 @@
     const send = async () => {
         const optionsList = [];
         const name = document.querySelector('#name').value;
-        const options = document.querySelectorAll('.options input');
+        const options = document.querySelectorAll('.index-options input');
   
         options.forEach(option => optionsList.push(option.value));
 

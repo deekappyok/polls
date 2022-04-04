@@ -7,19 +7,26 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="scss/globals.scss">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/index-style.css">
 </head>
 <body>
-    <h1>Vote - <%= poll.name %></h1>
-    <select name="vote" id="vote">
-        <% for(let i=0; i<poll.options.length; i++) { %>
-            <option value="<%= poll.options[i].name %>"><%= poll.options[i].name %></option>
-        <% } %>
-    </select>
 
-    <button id="vote-btn" onclick="submit()">Vote</button>
-
-    <a href="/polls/<%= poll.id %>/results">Results</a>
+    <section class="index">
+        <div class="index-box">
+            <h1>Vote - <%= poll.name %></h1>
+            <p>A simple poll system made with typescript! 🍔</p>
+            <select name="vote" id="vote">
+                <% for(let i=0; i<poll.options.length; i++) { %>
+                    <option value="<%= poll.options[i].name %>"><%= poll.options[i].name %></option>
+                <% } %>
+            </select>
+            <div class="index-box-btn">
+                <button class="btn btn-primary" id="vote-btn" onclick="submit()">Vote</button>
+                <a class="btn btn-color-g" href="/polls/<%= poll.id %>/results">Results</a>
+            </div>
+        </div>
+    </section>
 
     <script>
         const submit = async () => {
