@@ -18,7 +18,7 @@
             <p>A simple poll system made with typescript! 🍔</p>
             <input type="text" placeholder="Name" name="name" id="name">
             <div class="index-options">
-                <input type="text" placeholder="Title" id="option">
+                <input type="text" placeholder="Option" id="option">
             </div>
             <div class="index-box-btn">
                 <button class="btn btn-primary" onclick="addOption()">Add Option</button>
@@ -37,6 +37,7 @@
         const newOption = document.createElement('input');
         newOption.type = 'text';
         newOption.id = 'option';
+        newOption.placeholder = 'Option';
         options.appendChild(newOption);
     };
 
