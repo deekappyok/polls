@@ -83,3 +83,21 @@ table {
     width: 100%;
   }
 }
+
+
+/*
+progress bar
+*/
+
+
+.progress {
+  overflow: hidden;
+  height: 18px; 
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+  
+.progress .bar {
+  height: 100%;
+  background-color: var(--purple);
+}

@@ -14,17 +14,22 @@
 
     <section class="index">
         <div class="index-box">
-            <h1>Results</h1>
+            <h1>Results  <span style="opacity: 75%;">(<%= votes %> votes)</span></h1>
             <p><%= poll.name %></p>
             <table>
                 <tr>
-                    <td>Name</td>
+                    <td>Option</td>
                     <td>Votes</td>
                 </tr>
                 <% for(let i=0; i<poll.options.length; i++) { %>
                     <tr>
                         <td class="index-table-title"><%= poll.options[i].name %></td>
-                        <td class="index-table-title"><%= poll.options[i].votes %></td>
+                        <td class="index-table-title"><%= poll.options[i].votes %> (<%= poll.options[i].percentage %>%) </td>
+                        <td class="index-table-title" style="width: 100px; padding-right: 25px;">
+                            <div class="progress">
+                                <div class="bar" style="width: <%= poll.options[i].percentage %>%;"></div>
+                            </div>
+                        </td>
                     </tr>
                 <% } %>
 

@@ -91,8 +91,37 @@ router.get('/:id/results', (req, res) => {
         if (err) {
             res.status(500).send({error: 'something went wrong'});
         } else {
+
+            if(polls.length === 0) {
+                return res.status(404).send({error: 'Poll not found'});
+            } 
+
+            const poll: any = polls[0];
+
+             // polls[0].votes
+            // sum all votes
+            const sum: number = poll.options.reduce((acc: number, cur: any) => {
+                return acc + cur.votes;
+            }, 0);
+           
+            // add percentage to each option
+            poll.options.forEach((option: any) => {
+                const vote: number = option.votes;
+                const percentage: number = (vote / sum) * 100;
+                option.percentage = percentage ? percentage.toFixed(2) : 0;
+            });
+
+
+            // sort options by votes
+            const sortedOptions: any = poll.options.sort((a: any, b: any) => {
+                return b.votes - a.votes;
+            });
+
+            poll.options = sortedOptions;
+
             res.render('results', {
-                poll: polls[0]
+                votes: sum,
+                poll
             });
         }
     });
