@@ -38,5 +38,9 @@ app.get('/create', (req, res) => res.render('create'));
 app.use('/api/v1', api);
 app.use('/polls', poll);
 
+// 404 message
+app.use((req, res) => res.status(404).redirect('/'));
+
+
 // start the express server
 app.listen(port, () => console.log(`server started at http://localhost:${port}`));
