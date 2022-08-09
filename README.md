@@ -1,4 +1,4 @@
-# polls
+# polls (1.2)
 A simple poll system made with `typescript` and `ejs` for a school project!
 
 <img src="https://github.com/DeeKaPPy/polls/blob/main/media/polls.png">
